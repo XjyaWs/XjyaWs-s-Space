@@ -12,3 +12,6 @@ g=(add(10,i) for i in g)
 g=(add(10,i) for i in g)
 for i in g:
     print(i)
+
+#生成器问题
+# 使用for循环，两次循环都是带入n=10是为什么？
