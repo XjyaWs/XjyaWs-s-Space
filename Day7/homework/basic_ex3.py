@@ -9,20 +9,20 @@ import datetime
 
 
 class Timedate(object):
+    dtime = datetime.datetime.today()
+
     def __init__(self, *args: datetime.datetime):
-        if args != ():
-            self.datetime = args[0]
-        else:
-            self.datetime = datetime.datetime.today()
+        if args:
+            self.dtime = args[0]
 
     def get_season(self):
-        if 1 <= self.datetime.month <= 3:
+        if 1 <= self.dtime.month <= 3:
             return 'Spring'
-        elif 4 <= self.datetime.month <= 6:
+        elif 4 <= self.dtime.month <= 6:
             return 'Summer'
-        elif 7 <= self.datetime.month <= 9:
+        elif 7 <= self.dtime.month <= 9:
             return 'Autumn'
-        elif 10 <= self.datetime.month <= 12:
+        elif 10 <= self.dtime.month <= 12:
             return 'Winter'
 
     @staticmethod
