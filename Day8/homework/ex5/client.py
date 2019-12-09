@@ -2,7 +2,7 @@ import socket
 import os
 import struct
 import json
-from ex5_new.conf import settings
+from ex5.conf import settings
 import hashlib
 
 client = socket.socket()
