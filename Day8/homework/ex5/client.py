@@ -9,7 +9,7 @@ client = socket.socket()
 
 # 列出文件夹下的所有文件名
 files_list = []
-for file in os.listdir(settings.VIDEO_PATH):
+for file in os.listdir(settings.TARGET_PATH):
     files_list.append(file)
 
 # 提示信息
@@ -27,7 +27,7 @@ file_chosen = files_list[reply-1]
 
 # 读取文件内容、 生成大文件md5
 m = hashlib.md5()
-with open(os.path.join(settings.VIDEO_PATH, file_chosen), 'rb') as f:
+with open(os.path.join(settings.TARGET_PATH, file_chosen), 'rb') as f:
     while True:
         data = f.read(4096)
         if not data:

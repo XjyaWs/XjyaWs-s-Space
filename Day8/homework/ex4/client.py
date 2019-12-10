@@ -3,4 +3,21 @@
 """
 import socket
 import struct
-import subprocess
+
+client = socket.socket()
+client.connect(('127.0.0.1', 8080))
+
+comm = input('$>>>:').strip()
+
+# 发送指令
+client.send(comm.encode('utf-8'))
+
+# 接收返回报头
+reply_size = struct.unpack('i', client.recv(4))[0]
+
+# 接收返回内容
+reply = client.recv(int(reply_size)).decode('gbk')
+
+print(reply)
+
+client.close()

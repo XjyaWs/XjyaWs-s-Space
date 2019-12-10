@@ -9,8 +9,8 @@ server.bind(('127.0.0.1', 8080))
 server.listen(5)
 
 while True:
+    conn, addr = server.accept()
     try:
-        conn, addr = server.accept()
 
         # 接受字典头
         file_header_size = struct.unpack('i', conn.recv(4))[0]
@@ -36,3 +36,4 @@ while True:
     except Exception as e:
         print(e)
         conn.close()
+
